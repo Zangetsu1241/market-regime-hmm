@@ -41,3 +41,28 @@ Output: `walk_forward.csv`, `metrics.json`, and `regimes.png`.
 `tests/test_hmm.py`: numerical and validation tests
 
 MIT licensed.
+
+## Real-data upgrade: adjusted OHLC + next-open paper execution (phase 1)
+
+**Status:** Real-data adapter, paper-only execution simulator and 8 new tests have been implemented. Historical SPY data ingestion has **not been verified end-to-end in the authoring environment**, because external market-data endpoints are not reachable here. This is **not yet a live-trading system**.
+
+The original `regime-lab` CLI remains a *research approximation* with close-to-close scoring. The upgraded `regime-real` command uses adjusted closing prices for HMM signals, but measures execution at the **next session open** and returns from that open to the following open.
+
+Install the optional data provider, then download actual SPY data and record a reproducible input snapshot:
+
+```bash
+python -m pip install -e '.[test,market]'
+python -m pytest -q
+regime-real --download --ticker SPY --start 2005-01-01 --train-size 750 --test-block 63 --cost-bps 5 --output results-spy
+```
+
+Or provide an independently acquired, consistently adjusted `date,open,close` CSV. For an old historical dataset, explicitly disable the freshness check:
+
+```bash
+regime-real --ohlc-csv historical_spy.csv --historical-only --output results-historical
+```
+
+The CLI rejects missing/duplicate/out-of-order dates, nonpositive prices, suspicious daily jumps, insufficient history, and stale inputs unless `--historical-only` is supplied. It writes `adjusted_ohlc.csv` and `data_manifest.json` (including SHA-256), `model_signals_raw.csv`, `paper_open_to_open.csv`, and `paper_metrics.json`. Nonhistorical mode also writes a **non-actionable** `signal_status.json` marked `RESEARCH_ONLY_NO_ORDERS`; it does not submit orders.
+
+**Known gaps before real production:** correct latest-day regime inference without the final one-day research lag, validated paid/licensed provider and corporate-action history, open-auction spreads/slippage and order-fill assumptions, persistent idempotent portfolio state, trading calendar and market-hour scheduling, alerts/fail-closed behavior, broker paper-account reconciliation, walk-forward parameter governance, and independently verified remote CI plus real-data results. Do not put real money behind these results.
+
