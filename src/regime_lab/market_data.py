@@ -83,7 +83,11 @@ class YahooProvider:
         failure = None
         for attempt in range(self.attempts):
             try:
-                data = yf.download(ticker, start=start, end=end, auto_adjust=False,
+                # Corporate actions after the requested historical end can change
+                # Yahoo's split-adjusted OHLC units. Fetch through today to undo
+                # those splits too, then trim the canonical response.
+                action_end = max(pd.Timestamp(end), pd.Timestamp.now(tz='UTC').tz_localize(None).normalize())
+                data = yf.download(ticker, start=start, end=str(action_end.date()), auto_adjust=False,
                     actions=True, progress=False, threads=False, timeout=20,
                     multi_level_index=False)
                 if data is None or data.empty:
@@ -101,6 +105,7 @@ class YahooProvider:
                 data[['open','high','low','close','dividends']] = data[
                     ['open','high','low','close','dividends']].mul(future, axis=0)
                 data['volume'] = data.volume / future
+                data = data.loc[(data.index >= pd.Timestamp(start)) & (data.index < pd.Timestamp(end))]
                 return validate_bars(data)
             except Exception as exc:
                 failure = exc
@@ -124,7 +129,7 @@ class CSVProvider:
 
 def dataset(provider, ticker, start, end, cache, refresh=False):
     """Immutable content blobs plus atomic request pointers; corrupted caches fail closed."""
-    request = {'provider':provider.name, 'ticker':ticker, 'start':start, 'end':end}
+    request = {'provider':provider.name, 'ticker':ticker, 'start':start, 'end':end, 'adapter_schema':2}
     if isinstance(provider, CSVProvider):
         request['csv_sha256'] = hashlib.sha256((Path(provider.directory)/f'{ticker}.csv').read_bytes()).hexdigest()
     key = hashlib.sha256(json.dumps(request, sort_keys=True).encode()).hexdigest()

@@ -13,6 +13,23 @@ from regime_lab.paper import update_paper
 from regime_lab.storage import exclusive_lock
 
 
+def test_yahoo_reverses_splits_after_requested_end(monkeypatch):
+    import yfinance
+    from regime_lab.market_data import YahooProvider
+    dates = sessions('2020-01-02','2020-01-10')[:6]
+    vendor = pd.DataFrame({'Open':50.,'High':51.,'Low':49.,'Close':50.,
+        'Adj Close':50.,'Volume':200.,'Dividends':0.,'Stock Splits':0.},index=dates)
+    vendor.loc[dates[-1],'Stock Splits'] = 2.
+    vendor.loc[dates[1],'Dividends'] = .5
+    monkeypatch.setattr(yfinance,'download',lambda *a,**k:vendor.copy())
+    monkeypatch.setattr(yfinance,'set_tz_cache_location',lambda *a:None)
+    got = YahooProvider().fetch('SPY',str(dates[0].date()),str(dates[4].date()))
+    assert len(got) == 4
+    assert np.allclose(got.open,100)
+    assert np.allclose(got.volume,100)
+    assert got.dividends.iloc[1] == 1.
+
+
 def fixture_bars(n=400):
     dates = sessions('2020-01-01','2023-12-31')[:n]
     rng = np.random.default_rng(8)

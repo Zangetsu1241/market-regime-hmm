@@ -5,11 +5,29 @@ import importlib.metadata
 import json
 from pathlib import Path
 import platform
+import subprocess
 import numpy as np
 import pandas as pd
 from .pipeline import ModelConfig, signals
 from .portfolio import Costs, backtest, metrics
 from .storage import write_json
+
+
+def environment():
+    versions = {}
+    for package in ['numpy','pandas','scipy','exchange-calendars','yfinance']:
+        try:
+            versions[package] = importlib.metadata.version(package)
+        except importlib.metadata.PackageNotFoundError:
+            versions[package] = None
+    try:
+        revision = subprocess.check_output(['git','rev-parse','HEAD'], text=True,
+            cwd=Path(__file__).resolve().parents[2], stderr=subprocess.DEVNULL).strip()
+    except (OSError, subprocess.CalledProcessError):
+        revision = None
+    return {'python':platform.python_version(), 'packages':versions, 'git_revision':revision,
+            'source_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest()
+                             for p in Path(__file__).parent.glob('*.py')}}
 
 
 def evaluate(bars, spec, output, manifest, release_test=False):
@@ -47,9 +65,7 @@ def evaluate(bars, spec, output, manifest, release_test=False):
         'candidates':candidates, 'winner':winner,
         'warning':'Multiple comparisons on validation; final test is descriptive and must not be retuned'}
     write_json(output/'selection.json', selection)
-    provenance = {'spec':spec, 'dataset':manifest, 'python':platform.python_version(),
-        'packages':{p:importlib.metadata.version(p) for p in
-            ['numpy','pandas','scipy','exchange-calendars','yfinance']},
+    provenance = {'spec':spec, 'dataset':manifest, **environment(),
         'selection_sha256':hashlib.sha256((output/'selection.json').read_bytes()).hexdigest(),
         'final_test_released':release_test}
     write_json(output/'provenance.json', provenance)
