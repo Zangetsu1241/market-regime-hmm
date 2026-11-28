@@ -6,3 +6,7 @@ __pycache__/
 results/
 results-*/
 .DS_Store
+.env
+data-cache/
+paper-state/
+*.log

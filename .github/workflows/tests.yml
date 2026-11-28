@@ -13,6 +13,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-      - run: python -m pip install -e '.[test]'
+      - run: python -m pip install -e '.[test,market]'
       - run: pytest -q
       - run: regime-lab --synthetic-days 600 --train-size 250 --test-block 100 --output results

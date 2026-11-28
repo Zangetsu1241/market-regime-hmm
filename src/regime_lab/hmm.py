@@ -40,7 +40,14 @@ class GaussianHMM:
         return b
 
     def fit(self,X):
+        if (not isinstance(self.n_states, int) or self.n_states < 2
+                or self.n_init < 1 or self.max_iter < 1
+                or not np.isfinite(self.min_var) or self.min_var <= 0
+                or not np.isfinite(self.tol) or self.tol <= 0):
+            raise ValueError('Invalid HMM configuration')
         X=self._check(X)
+        if X.shape[1] == 0:
+            raise ValueError('At least one feature is required')
         T,D=X.shape
         rng=np.random.default_rng(self.random_state)
         best=-np.inf
@@ -72,6 +79,10 @@ class GaussianHMM:
                 best=final_ll
                 params=tuple(z.copy() for z in (self.start_,self.trans_,self.means_,self.vars_))
                 self.history_=history
+                self.converged_=len(history)>1 and abs(history[-1]-history[-2])<self.tol*(1+abs(history[-1]))
+                self.n_iter_=len(history)
+        if not np.isfinite(best):
+            raise RuntimeError('No finite HMM fit')
         self.start_,self.trans_,self.means_,self.vars_=params
         self.log_likelihood_=best
         self.n_features_in_=D
@@ -86,9 +97,12 @@ class GaussianHMM:
             return np.empty((0,self.n_states))
         logb=self._emissions(X)
         probs=np.empty((len(X),self.n_states))
-        prior=self.start_ if initial is None else np.asarray(initial)@self.trans_
-        if initial is not None and (np.asarray(initial).shape!=(self.n_states,) or not np.isclose(np.sum(initial),1)):
-            raise ValueError("Invalid initial distribution")
+        if initial is not None:
+            initial = np.asarray(initial, dtype=float)
+            if (initial.shape != (self.n_states,) or not np.isfinite(initial).all()
+                    or (initial < 0).any() or not np.isclose(initial.sum(), 1)):
+                raise ValueError('Invalid initial distribution')
+        prior=self.start_ if initial is None else initial@self.trans_
         for t in range(len(X)):
             lp=np.log(np.maximum(prior,1e-300))+logb[t]
             probs[t]=np.exp(lp-logsumexp(lp))
@@ -96,4 +110,7 @@ class GaussianHMM:
         return probs
 
     def score(self,X):
-        return self._forward(self._emissions(np.asarray(X,float)))[1]
+        X=np.asarray(X,float)
+        if X.ndim!=2 or not len(X) or X.shape[1]!=self.n_features_in_ or not np.isfinite(X).all():
+            raise ValueError('Invalid feature matrix')
+        return self._forward(self._emissions(X))[1]

@@ -1,0 +1,13 @@
+{
+  "tickers": ["SPY", "QQQ", "IWM"],
+  "start": "2018-01-01",
+  "end": "2026-01-01",
+  "validation_start": "2021-01-01",
+  "test_start": "2024-01-01",
+  "model": {
+    "states": 2, "train_size": 504, "refit_every": 252,
+    "window": null, "max_iter": 100, "n_init": 2, "seed": 42,
+    "target_vol": 0.12
+  },
+  "costs": {"commission_bps": 1, "half_spread_bps": 1, "slippage_bps": 3}
+}

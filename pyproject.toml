@@ -7,7 +7,7 @@ name = "market-regime-hmm"
 version = "0.1.0"
 description = "Leakage-aware Gaussian HMM market regime research and walk-forward evaluation"
 requires-python = ">=3.10"
-dependencies = ["numpy>=1.24", "pandas>=2.0", "scipy>=1.10", "matplotlib>=3.7"]
+dependencies = ["numpy>=1.24", "pandas>=2.0", "scipy>=1.10", "matplotlib>=3.7", "exchange-calendars>=4.5", "python-dotenv>=1.0"]
 
 [project.optional-dependencies]
 test = ["pytest>=7"]
@@ -16,6 +16,7 @@ market = ["yfinance>=0.2.55"]
 [project.scripts]
 regime-lab = "regime_lab.cli:main"
 regime-real = "regime_lab.real_cli:main"
+regime-system = "regime_lab.system_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
