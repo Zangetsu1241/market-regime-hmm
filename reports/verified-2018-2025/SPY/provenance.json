@@ -1,0 +1,69 @@
+{
+  "spec": {
+    "tickers": [
+      "SPY",
+      "QQQ",
+      "IWM"
+    ],
+    "start": "2018-01-01",
+    "end": "2026-01-01",
+    "validation_start": "2021-01-01",
+    "test_start": "2024-01-01",
+    "model": {
+      "states": 2,
+      "train_size": 504,
+      "refit_every": 252,
+      "window": null,
+      "max_iter": 100,
+      "n_init": 2,
+      "seed": 42,
+      "target_vol": 0.12
+    },
+    "costs": {
+      "commission_bps": 1,
+      "half_spread_bps": 1,
+      "slippage_bps": 3
+    }
+  },
+  "dataset": {
+    "provider": "yahoo-yfinance",
+    "ticker": "SPY",
+    "start": "2018-01-01",
+    "end": "2026-01-01",
+    "adapter_schema": 2,
+    "sha256": "065748aa9ec0a3a3b180c9a2f2f0843406bad376e1070e69ae26593f55d11701",
+    "rows": 2011,
+    "downloaded_at": "2026-11-28T08:27:47.932389+00:00",
+    "first_session": "2018-01-02",
+    "last_session": "2025-12-31",
+    "schema": 1,
+    "adjustments": "as-traded OHLC/actions; vendor total-return adjusted close"
+  },
+  "python": "3.14.6",
+  "packages": {
+    "numpy": "2.5.5",
+    "pandas": "3.1.1",
+    "scipy": "1.18.1",
+    "exchange-calendars": "4.13.3",
+    "yfinance": "1.8.0"
+  },
+  "git_revision": "c70a5bce91d1c3f0510a16db89d9ead198f4fe00",
+  "source_sha256": {
+    "cli.py": "2ff9acf515bc4b33e59a76f8823327cea1a5ad91a88f2feb682bc7c87f583aa7",
+    "data.py": "5f1b3175768acbdac48d0c69691229d22910ad85624681f1c84f95284d362cee",
+    "experiments.py": "a4265ab6c7a51498aaecdd0c212d4b0d957ebdcb7af89e5a04de5625167b8fba",
+    "hmm.py": "b42218bf7871b3b64d7a9b64b3fc32c6c7ddae7aa8a46cb748e5363c608854c1",
+    "market_data.py": "95e1adc142bee0cf4b0c5c0e021a83494115878e193d594bc62b45ae5e536b30",
+    "paper.py": "44d326443e3263bb064261451957a42e715a5c56fe6b06e5a4b4a725de60f5c5",
+    "pipeline.py": "e7a88d1ce135bc3067bc157c011cf72c7399a16269a02bcf931ec7e5c4c8ac8d",
+    "portfolio.py": "1a8e825a475de08396c14e8f4ef4115f82e8a0919e82e38eaf21396eb49f6dc2",
+    "real_cli.py": "53947b89d950d0b0217825fab2b4884ccdc0c7459271b91a282cbd5d2d22dd20",
+    "real_market.py": "24e2784601919808c6d89b28cc59f624ff2385320b894317726920a6191912cc",
+    "research.py": "58f0978e7e16e05d0d55919e8071ffc90a1eaa535868b6f566ce971467707929",
+    "storage.py": "92742e693a654ed6dbf412d056a6865fd80a2274a1813b778dc2ec5321437e7c",
+    "system_cli.py": "0c2eb9d5670e0e9fcb0029fd8f066a6f5f9ca3c16bc5cb2deb74313b328fdbf1",
+    "__init__.py": "30b5f5197a1fe63b15d0e9d18bb6f7ca6235acc3061b2383f65f440eb4b957c0"
+  },
+  "selection_sha256": "2ee771f6d80fa7048aee6d2d8b7b314840c8b97af83331afc3f777a9443c4136",
+  "final_test_released": true
+}

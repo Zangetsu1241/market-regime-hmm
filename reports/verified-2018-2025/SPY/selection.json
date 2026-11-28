@@ -1,0 +1,385 @@
+{
+  "criterion": "maximum validation simple-return Sharpe; zero cash interest",
+  "validation_start": "2021-01-01",
+  "test_start": "2024-01-01",
+  "candidates": [
+    {
+      "id": "2-expanding-binary",
+      "config": {
+        "states": 2,
+        "train_size": 504,
+        "refit_every": 252,
+        "window": null,
+        "max_iter": 100,
+        "n_init": 2,
+        "seed": 42,
+        "target_vol": 0.12
+      },
+      "variant": "binary",
+      "metrics": {
+        "observations": 752,
+        "total_return": 0.2165148132937995,
+        "cagr": 0.06788229111812871,
+        "sharpe": 0.7366623042820873,
+        "sortino": 1.0477869738275638,
+        "calmar": 0.48851143675277037,
+        "max_drawdown": -0.13895742455766313,
+        "annual_volatility": 0.09533600520793137,
+        "annual_turnover": 22.45128142656614,
+        "exposure": 0.5611702127659575,
+        "transaction_costs": 3587.350471277433,
+        "cost_fraction_sum": 0.033524417360386714
+      },
+      "nonconverged_fits": 0
+    },
+    {
+      "id": "2-expanding-risk_scaled",
+      "config": {
+        "states": 2,
+        "train_size": 504,
+        "refit_every": 252,
+        "window": null,
+        "max_iter": 100,
+        "n_init": 2,
+        "seed": 42,
+        "target_vol": 0.12
+      },
+      "variant": "risk_scaled",
+      "metrics": {
+        "observations": 752,
+        "total_return": 0.17077622016593175,
+        "cagr": 0.05425589608791981,
+        "sharpe": 0.6908344997400516,
+        "sortino": 0.9597990148471881,
+        "calmar": 0.4397486990588962,
+        "max_drawdown": -0.12337932142615216,
+        "annual_volatility": 0.08127082675541697,
+        "annual_turnover": 19.55146870764934,
+        "exposure": 0.505376088101892,
+        "transaction_costs": 3099.5555291151895,
+        "cost_fraction_sum": 0.0291977721662602
+      },
+      "nonconverged_fits": 0
+    },
+    {
+      "id": "2-504-binary",
+      "config": {
+        "states": 2,
+        "train_size": 504,
+        "refit_every": 252,
+        "window": 504,
+        "max_iter": 100,
+        "n_init": 2,
+        "seed": 42,
+        "target_vol": 0.12
+      },
+      "variant": "binary",
+      "metrics": {
+        "observations": 752,
+        "total_return": 0.04984469931779589,
+        "cagr": 0.016433902854338767,
+        "sharpe": 0.18810098775916662,
+        "sortino": 0.2613736166372647,
+        "calmar": 0.06301141662110121,
+        "max_drawdown": -0.2608083381644747,
+        "annual_volatility": 0.1352654246095718,
+        "annual_turnover": 23.125057476496938,
+        "exposure": 0.7566489361702128,
+        "transaction_costs": 3360.8554520043494,
+        "cost_fraction_sum": 0.03449654397854052
+      },
+      "nonconverged_fits": 0
+    },
+    {
+      "id": "2-504-risk_scaled",
+      "config": {
+        "states": 2,
+        "train_size": 504,
+        "refit_every": 252,
+        "window": 504,
+        "max_iter": 100,
+        "n_init": 2,
+        "seed": 42,
+        "target_vol": 0.12
+      },
+      "variant": "risk_scaled",
+      "metrics": {
+        "observations": 752,
+        "total_return": 0.08572241988033458,
+        "cagr": 0.027944340669122436,
+        "sharpe": 0.330899657706414,
+        "sortino": 0.45666382385374293,
+        "calmar": 0.1685567235132131,
+        "max_drawdown": -0.16578597451754506,
+        "annual_volatility": 0.09772930218359113,
+        "annual_turnover": 18.53989440225697,
+        "exposure": 0.6213969694401758,
+        "transaction_costs": 2808.1393949746403,
+        "cost_fraction_sum": 0.027674538520201616
+      },
+      "nonconverged_fits": 0
+    },
+    {
+      "id": "3-expanding-binary",
+      "config": {
+        "states": 3,
+        "train_size": 504,
+        "refit_every": 252,
+        "window": null,
+        "max_iter": 100,
+        "n_init": 2,
+        "seed": 42,
+        "target_vol": 0.12
+      },
+      "variant": "binary",
+      "metrics": {
+        "observations": 752,
+        "total_return": 0.13896097036094046,
+        "cagr": 0.04456741415432308,
+        "sharpe": 0.4848110195793498,
+        "sortino": 0.6716718008393815,
+        "calmar": 0.29252648233005174,
+        "max_drawdown": -0.15235343412101254,
+        "annual_volatility": 0.10033239737235475,
+        "annual_turnover": 30.49182498457436,
+        "exposure": 0.5851063829787234,
+        "transaction_costs": 4741.812650661399,
+        "cost_fraction_sum": 0.04553948222577214
+      },
+      "nonconverged_fits": 0
+    },
+    {
+      "id": "3-expanding-risk_scaled",
+      "config": {
+        "states": 3,
+        "train_size": 504,
+        "refit_every": 252,
+        "window": null,
+        "max_iter": 100,
+        "n_init": 2,
+        "seed": 42,
+        "target_vol": 0.12
+      },
+      "variant": "risk_scaled",
+      "metrics": {
+        "observations": 752,
+        "total_return": 0.21139329089654657,
+        "cagr": 0.06637361298719746,
+        "sharpe": 0.846294793420518,
+        "sortino": 1.197861018444635,
+        "calmar": 0.7091679273940057,
+        "max_drawdown": -0.09359364746104915,
+        "annual_volatility": 0.07969679189187424,
+        "annual_turnover": 9.74999718001065,
+        "exposure": 0.5534897518171689,
+        "transaction_costs": 1580.117606700583,
+        "cost_fraction_sum": 0.014558056227733353
+      },
+      "nonconverged_fits": 0
+    },
+    {
+      "id": "3-504-binary",
+      "config": {
+        "states": 3,
+        "train_size": 504,
+        "refit_every": 252,
+        "window": 504,
+        "max_iter": 100,
+        "n_init": 2,
+        "seed": 42,
+        "target_vol": 0.12
+      },
+      "variant": "binary",
+      "metrics": {
+        "observations": 752,
+        "total_return": 0.18703743568178033,
+        "cagr": 0.05914031906023087,
+        "sharpe": 0.6234124923663877,
+        "sortino": 0.8725401689155257,
+        "calmar": 0.5498516134027253,
+        "max_drawdown": -0.10755687101515332,
+        "annual_volatility": 0.10023814283311727,
+        "annual_turnover": 34.512096763578484,
+        "exposure": 0.5904255319148937,
+        "transaction_costs": 5528.284304227597,
+        "cost_fraction_sum": 0.05151605896851641
+      },
+      "nonconverged_fits": 0
+    },
+    {
+      "id": "3-504-risk_scaled",
+      "config": {
+        "states": 3,
+        "train_size": 504,
+        "refit_every": 252,
+        "window": 504,
+        "max_iter": 100,
+        "n_init": 2,
+        "seed": 42,
+        "target_vol": 0.12
+      },
+      "variant": "risk_scaled",
+      "metrics": {
+        "observations": 752,
+        "total_return": 0.17794269126215378,
+        "cagr": 0.05641403068930395,
+        "sharpe": 0.7347630071277396,
+        "sortino": 1.0340988487170149,
+        "calmar": 0.5987325050086298,
+        "max_drawdown": -0.09422242857599794,
+        "annual_volatility": 0.07893856061206735,
+        "annual_turnover": 9.477187413759713,
+        "exposure": 0.5447506342086629,
+        "transaction_costs": 1525.1576609137924,
+        "cost_fraction_sum": 0.014150148304410588
+      },
+      "nonconverged_fits": 0
+    },
+    {
+      "id": "4-expanding-binary",
+      "config": {
+        "states": 4,
+        "train_size": 504,
+        "refit_every": 252,
+        "window": null,
+        "max_iter": 100,
+        "n_init": 2,
+        "seed": 42,
+        "target_vol": 0.12
+      },
+      "variant": "binary",
+      "metrics": {
+        "observations": 752,
+        "total_return": 0.07709777505287807,
+        "cagr": 0.025200712961275018,
+        "sharpe": 0.33457432892711914,
+        "sortino": 0.4632256955062202,
+        "calmar": 0.15146500510644598,
+        "max_drawdown": -0.16637977164140694,
+        "annual_volatility": 0.08525316558111085,
+        "annual_turnover": 14.411832735471277,
+        "exposure": 0.5013297872340425,
+        "transaction_costs": 2171.062001166777,
+        "cost_fraction_sum": 0.021515708083341703
+      },
+      "nonconverged_fits": 0
+    },
+    {
+      "id": "4-expanding-risk_scaled",
+      "config": {
+        "states": 4,
+        "train_size": 504,
+        "refit_every": 252,
+        "window": null,
+        "max_iter": 100,
+        "n_init": 2,
+        "seed": 42,
+        "target_vol": 0.12
+      },
+      "variant": "risk_scaled",
+      "metrics": {
+        "observations": 752,
+        "total_return": 0.14440943781378213,
+        "cagr": 0.04623925642388227,
+        "sharpe": 0.6607886062188023,
+        "sortino": 0.920941278137398,
+        "calmar": 0.4262761395264626,
+        "max_drawdown": -0.10847254194252598,
+        "annual_volatility": 0.07237546017161763,
+        "annual_turnover": 9.80934485186167,
+        "exposure": 0.4937660107423454,
+        "transaction_costs": 1539.6009560450098,
+        "cost_fraction_sum": 0.01464244575630778
+      },
+      "nonconverged_fits": 0
+    },
+    {
+      "id": "4-504-binary",
+      "config": {
+        "states": 4,
+        "train_size": 504,
+        "refit_every": 252,
+        "window": 504,
+        "max_iter": 100,
+        "n_init": 2,
+        "seed": 42,
+        "target_vol": 0.12
+      },
+      "variant": "binary",
+      "metrics": {
+        "observations": 752,
+        "total_return": 0.2572263279435234,
+        "cagr": 0.07972731269258992,
+        "sharpe": 0.72986149325088,
+        "sortino": 1.0398638389229695,
+        "calmar": 0.3670072582733057,
+        "max_drawdown": -0.2172363376890437,
+        "annual_volatility": 0.11402061614109221,
+        "annual_turnover": 11.065606575891376,
+        "exposure": 0.6675531914893617,
+        "transaction_costs": 1712.9617852281408,
+        "cost_fraction_sum": 0.01650678753329185
+      },
+      "nonconverged_fits": 0
+    },
+    {
+      "id": "4-504-risk_scaled",
+      "config": {
+        "states": 4,
+        "train_size": 504,
+        "refit_every": 252,
+        "window": 504,
+        "max_iter": 100,
+        "n_init": 2,
+        "seed": 42,
+        "target_vol": 0.12
+      },
+      "variant": "risk_scaled",
+      "metrics": {
+        "observations": 752,
+        "total_return": 0.20183912775130275,
+        "cagr": 0.06354781053013236,
+        "sharpe": 0.7909037185911534,
+        "sortino": 1.1200202852224166,
+        "calmar": 0.5602108584882622,
+        "max_drawdown": -0.11343552087086839,
+        "annual_volatility": 0.0821756385962386,
+        "annual_turnover": 8.83943937760377,
+        "exposure": 0.5697506764206833,
+        "transaction_costs": 1405.4612618363471,
+        "cost_fraction_sum": 0.013193593154717145
+      },
+      "nonconverged_fits": 0
+    }
+  ],
+  "winner": {
+    "id": "3-expanding-risk_scaled",
+    "config": {
+      "states": 3,
+      "train_size": 504,
+      "refit_every": 252,
+      "window": null,
+      "max_iter": 100,
+      "n_init": 2,
+      "seed": 42,
+      "target_vol": 0.12
+    },
+    "variant": "risk_scaled",
+    "metrics": {
+      "observations": 752,
+      "total_return": 0.21139329089654657,
+      "cagr": 0.06637361298719746,
+      "sharpe": 0.846294793420518,
+      "sortino": 1.197861018444635,
+      "calmar": 0.7091679273940057,
+      "max_drawdown": -0.09359364746104915,
+      "annual_volatility": 0.07969679189187424,
+      "annual_turnover": 9.74999718001065,
+      "exposure": 0.5534897518171689,
+      "transaction_costs": 1580.117606700583,
+      "cost_fraction_sum": 0.014558056227733353
+    },
+    "nonconverged_fits": 0
+  },
+  "warning": "Multiple comparisons on validation; final test is descriptive and must not be retuned"
+}

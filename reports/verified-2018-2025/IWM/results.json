@@ -1,0 +1,190 @@
+{
+  "selected_variant": "binary",
+  "test": {
+    "binary": {
+      "observations": 502,
+      "total_return": 0.0014395890963434521,
+      "cagr": 0.000722403393597526,
+      "sharpe": 0.0911955200424822,
+      "sortino": 0.1300707125195244,
+      "calmar": 0.003083318350107983,
+      "max_drawdown": -0.23429413105274266,
+      "annual_volatility": 0.17448615122276512,
+      "annual_turnover": 33.63527766111422,
+      "exposure": 0.7709163346613546,
+      "transaction_costs": 3626.7711048606534,
+      "cost_fraction_sum": 0.033466916918528614
+    },
+    "risk_scaled": {
+      "observations": 502,
+      "total_return": 0.06282866527748343,
+      "cagr": 0.031060965092823523,
+      "sharpe": 0.34211049516770137,
+      "sortino": 0.5044957651924613,
+      "calmar": 0.2318785801329479,
+      "max_drawdown": -0.1339535763718006,
+      "annual_volatility": 0.10567246127725523,
+      "annual_turnover": 11.040348249419683,
+      "exposure": 0.44418748054029555,
+      "transaction_costs": 1159.9706047344598,
+      "cost_fraction_sum": 0.011014267730768553
+    },
+    "buy_hold": {
+      "observations": 502,
+      "total_return": 0.2624481840886814,
+      "cagr": 0.12410893967377024,
+      "sharpe": 0.6453352448038164,
+      "sortino": 0.9503181463664603,
+      "calmar": 0.4512826818545813,
+      "max_drawdown": -0.27501374341185636,
+      "annual_volatility": 0.21801491376343113,
+      "annual_turnover": 0.513211947143602,
+      "exposure": 1.0,
+      "transaction_costs": 51.262099642687275,
+      "cost_fraction_sum": 0.0005111666752007787
+    },
+    "trend": {
+      "observations": 502,
+      "total_return": 0.034995318569223555,
+      "cagr": 0.017416907410197302,
+      "sharpe": 0.18729349079056956,
+      "sortino": 0.2705680373822374,
+      "calmar": 0.10851177898883263,
+      "max_drawdown": -0.1605070672741412,
+      "annual_volatility": 0.1624705040970414,
+      "annual_turnover": 25.60400364568652,
+      "exposure": 0.6394422310756972,
+      "transaction_costs": 2451.499433629744,
+      "cost_fraction_sum": 0.025510867830040185
+    },
+    "vol_target": {
+      "observations": 502,
+      "total_return": 0.1111798996282487,
+      "cagr": 0.05434657676631138,
+      "sharpe": 0.464091104856644,
+      "sortino": 0.6732663928447997,
+      "calmar": 0.284148338234193,
+      "max_drawdown": -0.19126128663655717,
+      "annual_volatility": 0.13307398771200846,
+      "annual_turnover": 6.288434352326174,
+      "exposure": 0.6141271918750996,
+      "transaction_costs": 664.4238184965742,
+      "cost_fraction_sum": 0.006269482731944959
+    }
+  },
+  "test_years": {
+    "2024": {
+      "observations": 252,
+      "total_return": 0.14682503476699393,
+      "cagr": 0.14682503476699393,
+      "sharpe": 0.8578513955823386,
+      "sortino": 1.2922343338589455,
+      "calmar": 1.6527809560090907,
+      "max_drawdown": -0.0888351443264006,
+      "annual_volatility": 0.1781206955695835,
+      "annual_turnover": 35.00269671385978,
+      "exposure": 0.7857142857142857,
+      "transaction_costs": 1928.0572612838835,
+      "cost_fraction_sum": 0.017517206793536397
+    },
+    "2025": {
+      "observations": 250,
+      "total_return": -0.12677212413678152,
+      "cagr": -0.12771860013359004,
+      "sharpe": -0.7152920197046788,
+      "sortino": -0.966325168363514,
+      "calmar": -0.7362322214888525,
+      "max_drawdown": -0.17347597185479047,
+      "annual_volatility": 0.17065965111804948,
+      "annual_turnover": 32.25691925594672,
+      "exposure": 0.756,
+      "transaction_costs": 1698.7138435767702,
+      "cost_fraction_sum": 0.01594971012499222
+    }
+  },
+  "conditional_regimes": {
+    "bull": {
+      "days": 321,
+      "mean_daily_return": 0.0003607121566147452,
+      "mean_exposure": 0.8629283489096573
+    },
+    "bear": {
+      "days": 181,
+      "mean_daily_return": -0.0004645866309697535,
+      "mean_exposure": 0.6077348066298343
+    },
+    "high_vol": {
+      "days": 230,
+      "mean_daily_return": 7.155530403627534e-06,
+      "mean_exposure": 0.5782608695652174
+    },
+    "low_vol": {
+      "days": 272,
+      "mean_daily_return": 0.00011048768409916722,
+      "mean_exposure": 0.9338235294117647
+    }
+  },
+  "cost_sensitivity": {
+    "0": {
+      "observations": 502,
+      "total_return": 0.03556661577105591,
+      "cagr": 0.017698784517619526,
+      "sharpe": 0.1876138541464946,
+      "sortino": 0.26891736657567583,
+      "calmar": 0.07837433792881786,
+      "max_drawdown": -0.22582371966821768,
+      "annual_volatility": 0.17429293920772412,
+      "annual_turnover": 33.64381243141889,
+      "exposure": 0.7709163346613546,
+      "transaction_costs": 0.0,
+      "cost_fraction_sum": 0.0
+    },
+    "1": {
+      "observations": 502,
+      "total_return": 0.0014395890963434521,
+      "cagr": 0.000722403393597526,
+      "sharpe": 0.0911955200424822,
+      "sortino": 0.1300707125195244,
+      "calmar": 0.003083318350107983,
+      "max_drawdown": -0.23429413105274266,
+      "annual_volatility": 0.17448615122276512,
+      "annual_turnover": 33.63527766111422,
+      "exposure": 0.7709163346613546,
+      "transaction_costs": 3626.7711048606534,
+      "cost_fraction_sum": 0.033466916918528614
+    },
+    "2": {
+      "observations": 502,
+      "total_return": -0.03156254792055169,
+      "cagr": -0.01597067195801083,
+      "sharpe": -0.004959607791514868,
+      "sortino": -0.007038853551774865,
+      "calmar": -0.06581179771035216,
+      "max_drawdown": -0.24267186908189642,
+      "annual_volatility": 0.17472065637024836,
+      "annual_turnover": 33.62675141705362,
+      "exposure": 0.7709163346613546,
+      "transaction_costs": 7133.345719547353,
+      "cost_fraction_sum": 0.06691684902001048
+    },
+    "4": {
+      "observations": 502,
+      "total_return": -0.09433933559306529,
+      "cagr": -0.04852577788530832,
+      "sharpe": -0.1962144086915393,
+      "sortino": -0.2757233444259997,
+      "calmar": -0.18724732353526055,
+      "max_drawdown": -0.259153385848906,
+      "annual_volatility": 0.17531260299718604,
+      "annual_turnover": 33.60972445660925,
+      "exposure": 0.7709163346613546,
+      "transaction_costs": 13801.556650487977,
+      "cost_fraction_sum": 0.13376586047732525
+    }
+  },
+  "state_switch_fraction": 0.0718562874251497,
+  "test_nonconverged_fits": 0,
+  "cash_rate": 0,
+  "terminal_liquidation": false,
+  "accounting": "next-open rebalance; close mark; ex-date dividends; fractional shares"
+}
